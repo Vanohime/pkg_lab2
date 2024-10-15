@@ -108,6 +108,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_lineEdit_editingFinished()
 {
+    current_clicked = ui->lineEdit->text();
+    on_open_button_clicked();
 }
 
 void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
@@ -165,7 +167,6 @@ void MainWindow::on_open_button_clicked()
             return;
         }
     }
-
     table->show();
     current_clicked = "";
 }
@@ -180,5 +181,6 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         current_clicked = "";
     } else {
         current_clicked = model->filePath(index);
+        ui->lineEdit->setText(model->filePath(index));
     }
 }
