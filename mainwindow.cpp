@@ -94,6 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Image analyser");
     model = new QFileSystemModel(this);
     model->setFilter(QDir::QDir::AllEntries);
     model->setRootPath("");
